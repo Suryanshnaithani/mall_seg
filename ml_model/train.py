@@ -3,10 +3,15 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 import joblib
+import os  
+
+Current_dir = os.path.dirname(os.path.abspath(__file__))
+data_path = os.path.join(Current_dir, "data", "mall.csv")
+
 
 # Load the dataset
 def train_model():
-    df = pd.read_csv(r'D:\my_ml_project\ml_model\mall.csv')
+    df = pd.read_csv(data_path)
     # Select relevant features (e.g., 'Annual Income' and 'Spending Score')
     X = df[['Annual Income (k$)', 'Spending Score (1-100)']]
 
